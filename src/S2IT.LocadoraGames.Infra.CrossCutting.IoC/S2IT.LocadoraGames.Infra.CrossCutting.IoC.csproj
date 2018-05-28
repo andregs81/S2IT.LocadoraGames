@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="obj\**" />
+    <EmbeddedResource Remove="obj\**" />
+    <None Remove="obj\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="7.0.0-alpha-0001" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.1.0-rc1-final" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\S2IT.LocadoraGames.Application\S2IT.LocadoraGames.Application.csproj" />
+    <ProjectReference Include="..\S2IT.LocadoraGames.Domain\S2IT.LocadoraGames.Domain.csproj" />
+    <ProjectReference Include="..\S2IT.LocadoraGames.Infra.Data\S2IT.LocadoraGames.Infra.Data.csproj" />
+  </ItemGroup>
+
+
+</Project>

@@ -1,0 +1,52 @@
+﻿@model S2IT.LocadoraGames.Application.ViewModels.AmigoViewModel
+
+@{
+    ViewData["Title"] = "Remover Amigo";
+}
+
+<h2>Remover Amigo</h2>
+
+<h3>Deseja realmente remover o amigo?</h3>
+<div>
+    <h4>Amigo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AmigoId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AmigoId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Sobrenome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Sobrenome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Apelido)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Apelido)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Celular)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Celular)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="submit" value="Delete" class="btn btn-danger" /> 
+        <a asp-action="Index" class="btn btn-warning">
+            <span class="glyphicon glyphicon-arrow-left"></span> Voltar
+        </a>
+    </form>
+</div>

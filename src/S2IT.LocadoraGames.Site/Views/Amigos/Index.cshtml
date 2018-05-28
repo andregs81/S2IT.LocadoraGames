@@ -1,0 +1,104 @@
+﻿@model IEnumerable<S2IT.LocadoraGames.Application.ViewModels.AmigoViewModel>
+
+@{
+    ViewData["Title"] = "Lista de Amigos";
+}
+
+<h2>Lista de Amigos</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Adicionar Novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AmigoId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sobrenome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apelido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Celular)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AmigoId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sobrenome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Apelido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Celular)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.AmigoId" class="btn btn-warning" title="Editar">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </a>
+                    <a href="#" class="btn btn-primary btnDetalhes"  data-value="@item.AmigoId" title="Detalhes">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@item.AmigoId" class="btn btn-danger" title="Excluir">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+<!--#MODAL-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div id="modalAmigosIndex"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $.ajaxSetup({ cache: false });
+
+            $(".btnDetalhes").click(function () {
+
+                var id = $(this).data("value");
+
+                $("#modalAmigosIndex").load("/Amigos/Details/" + id, function () {
+                    $('#myModal').modal("show");
+                });
+            });
+        });
+
+    </script>
+
+}
+

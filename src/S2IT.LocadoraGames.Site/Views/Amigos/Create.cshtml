@@ -1,0 +1,74 @@
+﻿@model S2IT.LocadoraGames.Application.ViewModels.AmigoViewModel
+
+@{
+    ViewData["Title"] = "Adicionar Amigo";
+}
+
+<h2>Adicionar Amigo</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sobrenome" class="control-label"></label>
+                <input asp-for="Sobrenome" class="form-control" />
+                <span asp-validation-for="Sobrenome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Apelido" class="control-label"></label>
+                <input asp-for="Apelido" class="form-control" />
+                <span asp-validation-for="Apelido" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Celular" class="control-label"></label>
+                <input asp-for="Celular" class="form-control" />
+                <span asp-validation-for="Celular" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-warning">
+                    <span class="glyphicon glyphicon-arrow-left"></span> Voltar
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+
+    <script src="~/lib/jquery-mask-plugin/src/jquery.mask.js" type="text/javascript" asp-append-version="true"></script>
+
+    <script>
+        Validations();
+    </script>
+
+    @{
+        if (ViewBag.RetornoPost != null)
+        {
+            var notificacao = ViewBag.RetornoPost.ToString().Split(',');
+
+            <script>
+                toastr["@notificacao[0]"]("@notificacao[1]");
+            </script>
+
+            if (@notificacao[0] == "success")
+            {
+                <script>
+                    $("#btSubmit").prop("disabled", true);
+                </script>
+            }
+        }
+    }
+
+
+
+}

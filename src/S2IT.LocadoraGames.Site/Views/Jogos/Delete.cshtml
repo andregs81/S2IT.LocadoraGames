@@ -1,0 +1,27 @@
+﻿@model S2IT.LocadoraGames.Application.ViewModels.JogoViewModel
+
+@{
+    ViewData["Title"] = "Excluir Jogo";
+}
+
+<h3>Você tem certeza que deseja excluir esse jogo?</h3>
+<div>
+    <h4>@ViewData["Title"]</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Titulo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Titulo)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="JogoId" />
+        <input type="submit" value="Excluir" class="btn btn-danger" /> 
+        <a asp-action="Index" class="btn btn-warning">
+            <span class="glyphicon glyphicon-arrow-left"></span> Voltar
+        </a>
+    </form>
+</div>

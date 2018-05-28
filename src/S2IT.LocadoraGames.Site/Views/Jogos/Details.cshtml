@@ -1,0 +1,26 @@
+﻿@model S2IT.LocadoraGames.Application.ViewModels.JogoViewModel
+
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+
+<div>
+    <h2>@ViewData["Title"]</h2>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Titulo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Titulo)
+        </dd>
+        <dt>
+            Data Emprestimo
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DataEmprestimo)
+        </dd>
+    </dl>
+</div>
+

@@ -1,0 +1,58 @@
+﻿@model IEnumerable<S2IT.LocadoraGames.Application.ViewModels.JogoViewModel>
+
+@{
+    ViewData["Title"] = "Lista de Jogos";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Jogo
+            </th>
+            <th>
+                Data Emprestimo
+            </th>
+            <th>
+                Emprestado para
+            </th>
+            <th class="text-center">
+                Disponível
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Titulo
+                </td>
+                <td>
+                    @(item.DataEmprestimo?.ToString("dd/MM/yyyy"))
+                </td>
+                <td>
+                    @item.DadosdoLocatario()
+                </td>
+                <td class="text-center" readonly>
+                    @Html.CheckBox("Disponivel", item.Disponivel(), new {disabled = "disabled"})
+                </td>
+
+                <td>
+                    @{if (!item.Disponivel())
+                        { <a asp-action="Devolver" asp-route-id="@item.JogoId" class="btn btn-warning" title="Devolver">
+                              <span class="glyphicon glyphicon-arrow-left"></span>        
+                            </a> };}
+                    @{if (item.Disponivel())
+                        {<a asp-action="Emprestar" asp-route-id="@item.JogoId" class="btn btn-success" title="Emprestar">
+                             <span class="glyphicon glyphicon-share-alt"></span>        
+                        
+                            </a>};}
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

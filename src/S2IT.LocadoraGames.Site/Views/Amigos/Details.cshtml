@@ -1,0 +1,73 @@
+﻿@model S2IT.LocadoraGames.Application.ViewModels.AmigoViewModel
+
+@{
+    ViewData["Title"] = "Editar Amigo";
+}
+
+<h3>Detalhes do Amigo</h3>
+
+<div class="row">
+    <div class="col-md-6">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.AmigoId)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.AmigoId)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Nome)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Nome)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Sobrenome)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Sobrenome)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Apelido)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Apelido)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Celular)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Celular)
+            </dd>
+        </dl>
+    </div>
+    <div class="col-md-6">
+        <h4>Jogos Emprestados</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Jogo
+                    </th>
+                    <th>
+                        Data Emprestimo
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Jogos)
+                {
+                    <tr>
+                        <td>
+                            @item.Titulo
+                        </td>
+                        <td>
+                            @(item.DataEmprestimo?.ToString("dd/MM/yyyy"))
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
