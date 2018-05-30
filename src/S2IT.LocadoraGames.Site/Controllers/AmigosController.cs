@@ -49,12 +49,12 @@ namespace S2IT.LocadoraGames.Site.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
-                ViewBag.RetornoPost = "";
+                // TODO: Add insert logic here                
                 if (ModelState.IsValid)
                 {
                     _amigoAppService.Add(amigoViewModel);
                 }
+
 
                 return RedirectToAction("Index");
             }

@@ -43,32 +43,13 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-
-
-    <script src="~/lib/jquery-mask-plugin/src/jquery.mask.js" type="text/javascript" asp-append-version="true"></script>
-
+    
     <script>
-        Validations();
+        Validations();        
     </script>
 
-    @{
-        if (ViewBag.RetornoPost != null)
-        {
-            var notificacao = ViewBag.RetornoPost.ToString().Split(',');
-
-            <script>
-                toastr["@notificacao[0]"]("@notificacao[1]");
-            </script>
-
-            if (@notificacao[0] == "success")
-            {
-                <script>
-                    $("#btSubmit").prop("disabled", true);
-                </script>
-            }
-        }
-    }
-
-
+    <script>
+        $("#Celular").mask('(00)00000-0000');
+    </script>
 
 }

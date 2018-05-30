@@ -7,8 +7,9 @@ function Validations() {
         language: "pt-BR",
         orientation: "bottom right",
         autoclose: true
-    });
+    });    
 
+    $("#Celular").mask('(00)00000-0000');
 
     toastr.options = {
         "closeButton": false,

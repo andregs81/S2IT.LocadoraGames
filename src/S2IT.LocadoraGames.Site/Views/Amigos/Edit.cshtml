@@ -49,4 +49,8 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        $("#Celular").mask('(00)00000-0000');
+    </script>
 }
