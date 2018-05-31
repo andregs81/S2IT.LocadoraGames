@@ -15,7 +15,7 @@ namespace S2IT.LocadoraGames.Application.ViewModels
         public string Titulo { get; set; }
 
         [Display(Name ="Data do Emprestimo")]
-        [DisplayFormat(DataFormatString = "{0: dd/MM/yyyy}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime? DataEmprestimo { get; set; }
 
         public int? AmigoId { get; set; }

@@ -45,7 +45,7 @@
         </form>
     </div>
 </div>
-
+@Html.ValidationSummary("", true)
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

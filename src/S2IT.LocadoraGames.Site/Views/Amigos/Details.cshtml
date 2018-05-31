@@ -8,67 +8,72 @@
 <h3>Detalhes do Amigo</h3>
 
 <div class="row">
+
     <div class="col-md-6">
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.AmigoId)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.AmigoId)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.Nome)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.Nome)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.Sobrenome)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.Sobrenome)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.Apelido)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.Apelido)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.Celular)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.Celular)
-            </dd>
-        </dl>
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">Amigo</div>
+            <div class="panel-body">
+
+                <div class="form-group">
+
+                    <div>
+                        @Html.LabelFor(model => model.AmigoId)
+                        @Html.DisplayFor(model => model.AmigoId)
+                    </div>
+                    <div>
+                        @Html.LabelFor(model => model.Nome)
+                        @Html.DisplayFor(model => model.Nome)
+                    </div>
+                    <div>
+                        @Html.LabelFor(model => model.Sobrenome)
+                        @Html.DisplayFor(model => model.Sobrenome)
+                    </div>
+                    <div>
+                        @Html.LabelFor(model => model.Apelido)
+                        @Html.DisplayFor(model => model.Apelido)
+                    </div>
+                    <div>
+                        @Html.LabelFor(model => model.Celular)
+                        @Html.DisplayFor(model => model.Celular)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
     </div>
     <div class="col-md-6">
-        <h4>Jogos Emprestados</h4>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>
-                        Jogo
-                    </th>
-                    <th>
-                        Data Emprestimo
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model.Jogos)
-                {
-                    <tr>
-                        <td>
-                            @item.Titulo
-                        </td>
-                        <td>
-                            @(item.DataEmprestimo?.ToString("dd/MM/yyyy"))
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
+        <div class="panel panel-primary">
+            <div class="panel-heading">Jogos Emprestados</div>
+            <div class="panel-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                Jogo
+                            </th>
+                            <th>
+                                Data Emprestimo
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Jogos)
+                        {
+                            <tr>
+                                <td>
+                                    @item.Titulo
+                                </td>
+                                <td>
+                                    @(item.DataEmprestimo?.ToString("dd/MM/yyyy"))
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
     </div>
 </div>
-
