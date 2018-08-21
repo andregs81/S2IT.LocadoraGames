@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using S2IT.LocadoraGames.Application.Interfaces;
 using S2IT.LocadoraGames.Application.ViewModels;
 using System;
@@ -12,11 +13,13 @@ namespace S2IT.LocadoraGames.Site.Controllers
     {
         private readonly IAmigoAppService _amigoAppService;
         private readonly IJogoAppService _jogoAppService;
+        private readonly IEnderecoAppService _enderecoAppService;
 
-        public AmigosController(IAmigoAppService amigoAppService, IJogoAppService jogoAppService)
+        public AmigosController(IAmigoAppService amigoAppService, IJogoAppService jogoAppService, IEnderecoAppService enderecoAppService)
         {
             _amigoAppService = amigoAppService;
             _jogoAppService = jogoAppService;
+            _enderecoAppService = enderecoAppService;
         }
 
         // GET: Amigos
@@ -39,13 +42,15 @@ namespace S2IT.LocadoraGames.Site.Controllers
         // GET: Amigos/Create
         public ActionResult Create()
         {
+            ViewData["CidadeId"] = new SelectList("0", "");
+            ViewData["CidadeId"] = new SelectList(_enderecoAppService.ObterCidades(), "CidadeId", "Nome");
             return View();
         }
 
         // POST: Amigos/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(AmigoViewModel amigoViewModel)
+        public ActionResult Create(AmigoEnderecoViewModel amigoViewModel)
         {
             try
             {

@@ -31,11 +31,18 @@ namespace S2IT.LocadoraGames.Infra.Data.Mappings
                 .HasColumnType("varchar(11)")
                 .IsRequired();
 
+            builder.Property(a => a.EnderecoId)
+                .HasColumnType("int");
+
             builder.ToTable("Amigo")
                 .HasKey(a => a.AmigoId);
 
             builder.HasMany(a => a.Jogos);
+
+            builder.HasOne(a => a.Endereco)
+                .WithOne(e => e.Amigo);
                 
+
         }
     }
 }

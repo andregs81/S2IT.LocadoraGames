@@ -16,6 +16,9 @@
                 Data Emprestimo
             </th>
             <th>
+                Data Devolução
+            </th>
+            <th>
                 Emprestado para
             </th>
             <th class="text-center">
@@ -27,32 +30,35 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @item.Titulo
-                </td>
-                <td>
-                    @(item.DataEmprestimo?.ToString("dd/MM/yyyy"))
-                </td>
-                <td>
-                    @item.DadosdoLocatario()
-                </td>
-                <td class="text-center" readonly>
-                    @Html.CheckBox("Disponivel", item.Disponivel(), new {disabled = "disabled"})
-                </td>
+        <tr>
+            <td>
+                @item.Titulo
+            </td>
+            <td>
+                @(item.DataEmprestimo?.ToString("dd/MM/yyyy"))
+            </td>
+            <td>
+                @(item.DataDevolucao?.ToString("dd/MM/yyyy"))
+            </td>
+            <td>
+                @item.DadosdoLocatario()
+            </td>
+            <td class="text-center" readonly>
+                @Html.CheckBox("Disponivel", item.Disponivel(), new { disabled = "disabled" })
+            </td>
 
-                <td>
-                    @{if (!item.Disponivel())
-                        { <a asp-action="Devolver" asp-route-id="@item.JogoId" class="btn btn-warning" title="Devolver">
-                              <span class="glyphicon glyphicon-arrow-left"></span>        
-                            </a> };}
-                    @{if (item.Disponivel())
-                        {<a asp-action="Emprestar" asp-route-id="@item.JogoId" class="btn btn-success" title="Emprestar">
-                             <span class="glyphicon glyphicon-share-alt"></span>        
-                        
-                            </a>};}
-                </td>
-            </tr>
+            <td>
+                @{if (!item.Disponivel())
+                    { <a asp-action="Devolver" asp-route-id="@item.JogoId" class="btn btn-warning" title="Devolver">
+                            <span class="glyphicon glyphicon-arrow-left"></span>
+                        </a> };}
+                @{if (item.Disponivel())
+                    {<a asp-action="Emprestar" asp-route-id="@item.JogoId" class="btn btn-success" title="Emprestar">
+                            <span class="glyphicon glyphicon-share-alt"></span>
+
+                        </a>};}
+            </td>
+        </tr>
         }
     </tbody>
 </table>

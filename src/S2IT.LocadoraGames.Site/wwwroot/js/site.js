@@ -1,13 +1,21 @@
 ﻿// Write your JavaScript code.
 function Validations() {
 
-    $('#DataEmprestimo').datepicker({
+    $('#DataDevolucao').datepicker({
         format: "dd/mm/yyyy",
         startDate: "today",
         language: "pt-BR",
         orientation: "bottom right",
         autoclose: true
     });    
+
+    $('#DataEmprestimo').datepicker({
+        format: "dd/mm/yyyy",
+        startDate: "now",
+        language: "pt-BR",
+        orientation: "bottom right",
+        autoclose: true
+    });
 
     $("#Celular").mask('(00)00000-0000');
 

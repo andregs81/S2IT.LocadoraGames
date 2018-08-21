@@ -27,4 +27,10 @@
     <ProjectReference Include="..\S2IT.LocadoraGames.Infra.Data\S2IT.LocadoraGames.Infra.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Views\Amigos\_Endereco.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+  </ItemGroup>
+
 </Project>

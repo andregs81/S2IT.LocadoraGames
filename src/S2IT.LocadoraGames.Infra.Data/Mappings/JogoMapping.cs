@@ -17,6 +17,10 @@ namespace S2IT.LocadoraGames.Infra.Data.Mappings
 
             builder.Property(j => j.DataEmprestimo)
                 .HasColumnType("DateTime");
+                
+
+            builder.Property(j => j.DataDevolucao)
+                .HasColumnType("DateTime");
 
             builder.Property(j => j.Titulo)
                 .HasColumnType("varchar(100)")

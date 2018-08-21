@@ -23,7 +23,6 @@ namespace S2IT.LocadoraGames.Site.Data
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
         }
-
-        public DbSet<S2IT.LocadoraGames.Application.ViewModels.JogoViewModel> JogoViewModel { get; set; }
+       
     }
 }

@@ -7,7 +7,7 @@ namespace S2IT.LocadoraGames.Application.Interfaces
 {
     public interface IAmigoAppService : IDisposable
     {
-        void Add(AmigoViewModel amigoViewModel);
+        void Add(AmigoEnderecoViewModel amigoViewModel);
         IEnumerable<AmigoViewModel> GetAll();        
         AmigoViewModel GetById(int id);
         void Update(AmigoViewModel amigoViewModel);

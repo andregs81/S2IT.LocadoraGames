@@ -10,6 +10,7 @@ namespace S2IT.LocadoraGames.Domain.Entities.Jogos
         public int JogoId { get; set; }
         public string Titulo { get; set; }
         public DateTime? DataEmprestimo { get; set; }
+        public DateTime? DataDevolucao { get; set; }
         public int? AmigoId { get; set; }
         public virtual Amigo Amigo { get; set; }
 

@@ -2,6 +2,7 @@
 using S2IT.LocadoraGames.Application.Interfaces;
 using S2IT.LocadoraGames.Application.ViewModels;
 using S2IT.LocadoraGames.Domain.Entities.Amigos;
+using S2IT.LocadoraGames.Domain.Entities.Geografia;
 using S2IT.LocadoraGames.Domain.Interfaces.Repository;
 using System;
 using System.Collections.Generic;
@@ -20,9 +21,12 @@ namespace S2IT.LocadoraGames.Application.Services
             _amigoRepository = amigoRepository;
         }
 
-        public void Add(AmigoViewModel amigoViewModel)
+        public void Add(AmigoEnderecoViewModel amigoViewModel)
         {
-            var amigo = _mapper.Map<AmigoViewModel, Amigo>(amigoViewModel);
+            var amigo = _mapper.Map<AmigoEnderecoViewModel, Amigo>(amigoViewModel);
+            var endereco = _mapper.Map<AmigoEnderecoViewModel, Endereco>(amigoViewModel);
+
+            amigo.Endereco = endereco;
 
             _amigoRepository.Add(amigo);
             _amigoRepository.SaveChanges();

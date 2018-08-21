@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using S2IT.LocadoraGames.Infra.Data.Context;
 
 namespace S2IT.LocadoraGames.Infra.Data.Migrations
 {
     [DbContext(typeof(LocadoraGamesContext))]
-    partial class LocadoraGamesContextModelSnapshot : ModelSnapshot
+    [Migration("20180821013043_Criando-data-devolucao-jogos")]
+    partial class Criandodatadevolucaojogos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

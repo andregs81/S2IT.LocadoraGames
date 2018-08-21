@@ -20,15 +20,20 @@ namespace S2IT.LocadoraGames.Infra.CrossCutting.IoC
             services.AddScoped<IMapper>(sp => new Mapper(sp.GetRequiredService<IConfigurationProvider>(), sp.GetService));
             services.AddScoped<IAmigoAppService, AmigoAppService>();
             services.AddScoped<IJogoAppService, JogoAppService>();
+            services.AddScoped<IEnderecoAppService, EnderecoAppService>();
 
 
             //Service
             services.AddScoped<IAmigoService, AmigoService>();
             services.AddScoped<IJogoService, JogoService>();
+            services.AddScoped<IEnderecoService, EnderecoService>();
+
 
             //data repo
             services.AddScoped<IAmigoRepository, AmigoRepository>();
             services.AddScoped<IJogoRepository, JogoRepository>();
+            services.AddScoped<IEnderecoRepository, EnderecoRepository>();
+            services.AddScoped<ICidadeRepository, CidadeRepository>();
             services.AddScoped<LocadoraGamesContext>();
 
         }

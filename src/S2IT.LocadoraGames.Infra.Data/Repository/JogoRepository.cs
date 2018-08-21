@@ -20,6 +20,7 @@ namespace S2IT.LocadoraGames.Infra.Data.Repository
         {
             jogo.AmigoId = null;
             jogo.DataEmprestimo = null;
+            jogo.DataDevolucao = null;
             Update(jogo);
         }
 
